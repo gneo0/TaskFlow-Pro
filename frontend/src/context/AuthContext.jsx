@@ -9,7 +9,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const { isLight } = useThemeColors();
   const { data: userData, setData: setUserData } = useFetch(
-    "http://localhost:4000/api/user/me",
+    "/api/user/me",
     !sessionStorage.getItem("isAuthenticated"),
   );
 
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:4000/api/user/login", {
+      const res = await fetch("/api/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginForm),
@@ -78,7 +78,7 @@ const AuthProvider = ({ children }) => {
     try {
       setIsLoading(true);
 
-      const res = await fetch("http://localhost:4000/api/user/signup", {
+      const res = await fetch("/api/user/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(signUpForm),
@@ -111,7 +111,7 @@ const AuthProvider = ({ children }) => {
       setIsLoading(true);
 
       const res = await fetch(
-        `http://localhost:4000/api/user/resetPassword/${newPassForm.token}`,
+        `/api/user/resetPassword/${newPassForm.token}`,
         {
           method: "PATCH",
           body: JSON.stringify({
@@ -148,7 +148,7 @@ const AuthProvider = ({ children }) => {
     try {
       setIsLoading(true);
 
-      const res = await fetch("http://localhost:4000/api/user/forgotPassword", {
+      const res = await fetch("/api/user/forgotPassword", {
         method: "POST",
         body: JSON.stringify({ email: forgotPassForm }),
         headers: { "Content-Type": "application/json" },
@@ -172,7 +172,7 @@ const AuthProvider = ({ children }) => {
 
   const handleLogout = async (navigate) => {
     try {
-      await fetch("http://localhost:4000/api/user/logout");
+      await fetch("/api/user/logout");
 
       // Clearing isAuthenticated value from session storage so the logged-out user can't navigate to protected routes
       sessionStorage.setItem("isAuthenticated", "");

@@ -23,17 +23,17 @@ const NotesProvider = ({ children }) => {
     data: notes,
     setData: setNotes,
     isLoading: notesIsLoading,
-  } = useFetch(`http://localhost:4000/api/boards/board/${boardId}`, !boardId);
+  } = useFetch(`/api/boards/board/${boardId}`, !boardId);
 
   const { data: pinnedNotes, setData: setPinnedNotes } = useFetch(
-    "http://localhost:4000/api/notes/pinned",
+    "/api/notes/pinned",
   );
 
   const {
     data: archivedNotes,
     setData: setArchivedNotes,
     isLoading: archivedNotesLoading,
-  } = useFetch("http://localhost:4000/api/notes/archived");
+  } = useFetch("/api/notes/archived");
 
   const [noteForm, setNoteForm] = useState({
     title: "",
@@ -109,7 +109,7 @@ const NotesProvider = ({ children }) => {
         columnTitle: selectedCol,
       };
 
-      const res = await fetch("http://localhost:4000/api/notes", {
+      const res = await fetch("/api/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const NotesProvider = ({ children }) => {
   const handlePinNote = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/notes/${selectedNote._id}`,
+        `/api/notes/${selectedNote._id}`,
         {
           method: "PATCH",
           body: JSON.stringify({ pinned: !selectedNote.pinned }),
@@ -168,7 +168,7 @@ const NotesProvider = ({ children }) => {
 
   const handleUnpinNote = async (noteId) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/notes/${noteId}`, {
+      const res = await fetch(`/api/notes/${noteId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pinned: false }),
@@ -200,7 +200,7 @@ const NotesProvider = ({ children }) => {
 
   const handleArchiveNote = async (noteId) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/notes/${noteId}`, {
+      const res = await fetch(`/api/notes/${noteId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ archived: true }),
@@ -235,7 +235,7 @@ const NotesProvider = ({ children }) => {
 
   const handleUnarchiveNote = async (noteId) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/notes/${noteId}`, {
+      const res = await fetch(`/api/notes/${noteId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ archived: false }),
@@ -263,7 +263,7 @@ const NotesProvider = ({ children }) => {
     try {
       setIsDeleting(true);
       const res = await fetch(
-        `http://localhost:4000/api/notes/${noteId ? noteId : selectedNote._id}`,
+        `/api/notes/${noteId ? noteId : selectedNote._id}`,
         {
           method: "DELETE",
         },
@@ -309,7 +309,7 @@ const NotesProvider = ({ children }) => {
     try {
       setIsSubmitting(true);
       const res = await fetch(
-        `http://localhost:4000/api/notes/${selectedNote._id}`,
+        `/api/notes/${selectedNote._id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -369,7 +369,7 @@ const NotesProvider = ({ children }) => {
 
   const updateNotesOrder = async (updatedNotes) => {
     try {
-      await fetch(`http://localhost:4000/api/notes/${boardId}`, {
+      await fetch(`/api/notes/${boardId}`, {
         method: "PUT",
         body: JSON.stringify(updatedNotes),
         headers: { "Content-Type": "application/json" },
@@ -381,7 +381,7 @@ const NotesProvider = ({ children }) => {
 
   const updateNotesCol = async (id, priority, columnTitle) => {
     try {
-      await fetch(`http://localhost:4000/api/notes/${id}`, {
+      await fetch(`/api/notes/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

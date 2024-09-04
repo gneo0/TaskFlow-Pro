@@ -21,7 +21,7 @@ const BoardsProvider = ({ children }) => {
     setData: setBoards,
     isLoading,
   } = useFetch(
-    `http://localhost:4000/api/boards/${userData?.id}`,
+    `/api/boards/${userData?.id}`,
     !userData?.id,
   );
 
@@ -59,7 +59,7 @@ const BoardsProvider = ({ children }) => {
 
     try {
       const res = await fetch(
-        `http://localhost:4000/api/boards/${userData?.id}`,
+        `/api/boards/${userData?.id}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -86,7 +86,7 @@ const BoardsProvider = ({ children }) => {
   const handleDeleteBoard = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/boards/board/${boardId}`,
+        `/api/boards/board/${boardId}`,
         {
           method: "DELETE",
           headers: {

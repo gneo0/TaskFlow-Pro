@@ -6,8 +6,8 @@ import DashboardHeader from "../components/dashboard/DashboardHeader";
 import { useFetch } from "../hooks/useFetch";
 
 const DashboardPage = () => {
-  const { data: notes } = useFetch("http://localhost:4000/api/notes");
-  const { data: meetings } = useFetch("http://localhost:4000/api/meetings");
+  const { data: notes } = useFetch("/api/notes");
+  const { data: meetings } = useFetch("/api/meetings");
   const pomoCount = localStorage.getItem("pomoCount");
 
   return (

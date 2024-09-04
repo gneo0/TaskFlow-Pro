@@ -13,7 +13,7 @@ const CalendarProvider = ({ children }) => {
   const { isLight } = useThemeColors();
 
   const { data: meetings, setData: setMeetings } = useFetch(
-    `http://localhost:4000/api/meetings/${userData?.id}`,
+    `/api/meetings/${userData?.id}`,
     !userData?.id,
   );
 
@@ -130,7 +130,7 @@ const CalendarProvider = ({ children }) => {
         userId: userData.id,
       };
 
-      const res = await fetch(`http://localhost:4000/api/meetings`, {
+      const res = await fetch(`/api/meetings`, {
         method: "POST",
         body: JSON.stringify(newMeeting),
         headers: {
@@ -167,7 +167,7 @@ const CalendarProvider = ({ children }) => {
 
   const handleDeleteMeeting = async (id) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/meetings/${id}`, {
+      const res = await fetch(`/api/meetings/${id}`, {
         method: "DELETE",
       });
 

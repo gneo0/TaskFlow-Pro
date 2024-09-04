@@ -48,7 +48,7 @@ const EditAccountProvider = ({ children }) => {
     try {
       setUpdateDetailsLoading(true);
 
-      const res = await fetch("http://localhost:4000/api/user/updateMe", {
+      const res = await fetch("/api/user/updateMe", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userDetailsForm),
@@ -91,7 +91,7 @@ const EditAccountProvider = ({ children }) => {
     try {
       setChangePassLoading(true);
 
-      const res = await fetch("http://localhost:4000/api/user/updatePassword", {
+      const res = await fetch("/api/user/updatePassword", {
         method: "PATCH",
         body: JSON.stringify(userPassForm),
         headers: { "Content-Type": "application/json" },
