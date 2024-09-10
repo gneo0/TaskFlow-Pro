@@ -2,18 +2,19 @@
 A productivity tool that helps you organize your notes, meetings and daily tasks.
 This project is a full-stack web application built using the MERN stack (MongoDB, Express, React, and Node.js). It includes CRUD operations and utilizes JWT tokens, stored in HTTP-only cookies, for authentication.
 
-The application offers the following key features:
-  - Dashboard: Provides analytics and statistics to help users track their productivity
-  - Kanban Planner: A note-taking tool with a Kanban-style interface for organizing tasks
-  - Calendar: A calendar feature that allows users to manage their meetings
-  - Pomodoro Timer: A built-in timer that boosts user's productivity
+### 1. The application offers the following key features:
+  - **Dashboard**: Provides analytics and statistics to help users track their productivity
+  - **Kanban Planner**: A note-taking tool with a Kanban-style interface for organizing tasks
+  - **Calendar**: A calendar feature that allows users to manage their meetings
+  - **Pomodoro Timer**: A built-in timer that boosts user's productivity
+  - **Full Theme Customization**: Users can fully modify the colors of the application, by toggling between dark/light mode, as well as changing the accent color for a customized look and feel
 
-Technologies Used:
-  - Frontend: React
-  - Backend: Node.js, Express.js, Mongoose
-  - Database: MongoDB
-  - Authentication: JWT
-  - Styling: Tailwind CSS
+### 2. Technologies Used:
+  - **Frontend**: React
+  - **Backend**: Node.js, Express.js, Mongoose
+  - **Database**: MongoDB
+  - **Authentication**: JWT
+  - **Styling**: Tailwind CSS
 <hr/>
 
 ![Screenshot 2024-09-04 005537](https://github.com/user-attachments/assets/30a98293-ab51-4691-997f-41512a168b45)
