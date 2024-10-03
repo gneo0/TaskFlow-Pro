@@ -37,27 +37,30 @@ export const generateNotesChartData = (notes) => [
 
 export const generateMeetingsChartData = (meetings) => [
   {
-    month: MONTHS[CURRENT_MONTH].slice(0, 3),
+    month: MONTHS[CURRENT_MONTH % 12].slice(0, 3),
     meetings: meetings.filter(
-      (meeting) => new Date(meeting.addedFor).getMonth() === CURRENT_MONTH,
+      (meeting) => new Date(meeting.addedFor).getMonth() === CURRENT_MONTH % 12,
     ).length,
   },
   {
-    month: MONTHS[CURRENT_MONTH + 1].slice(0, 3),
+    month: MONTHS[(CURRENT_MONTH + 1) % 12].slice(0, 3),
     meetings: meetings.filter(
-      (meeting) => new Date(meeting.addedFor).getMonth() === CURRENT_MONTH + 1,
+      (meeting) =>
+        new Date(meeting.addedFor).getMonth() === (CURRENT_MONTH + 1) % 12,
     ).length,
   },
   {
-    month: MONTHS[CURRENT_MONTH + 2].slice(0, 3),
+    month: MONTHS[(CURRENT_MONTH + 2) % 12].slice(0, 3),
     meetings: meetings.filter(
-      (meeting) => new Date(meeting.addedFor).getMonth() === CURRENT_MONTH + 2,
+      (meeting) =>
+        new Date(meeting.addedFor).getMonth() === (CURRENT_MONTH + 2) % 12,
     ).length,
   },
   {
-    month: MONTHS[CURRENT_MONTH + 3].slice(0, 3),
+    month: MONTHS[(CURRENT_MONTH + 3) % 12].slice(0, 3),
     meetings: meetings.filter(
-      (meeting) => new Date(meeting.addedFor).getMonth() === CURRENT_MONTH + 3,
+      (meeting) =>
+        new Date(meeting.addedFor).getMonth() === (CURRENT_MONTH + 3) % 12,
     ).length,
   },
 ];

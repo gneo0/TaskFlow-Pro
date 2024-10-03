@@ -11,7 +11,7 @@ import {
 import { generateMeetingsChartData } from "../../utils/helpers";
 import { useThemeColors } from "../../context/ThemeContext";
 
-const DashboardAreaChart = ({meetings}) => {
+const DashboardAreaChart = ({ meetings }) => {
   const { isLight } = useThemeColors();
   const meetingsChartData = generateMeetingsChartData(meetings);
 
